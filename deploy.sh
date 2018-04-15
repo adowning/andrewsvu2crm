@@ -1,4 +1,4 @@
-cat "adsf" >> .updater
+cat "adsf" > .updater
 git add .
 git commit -m 'asdfadsfsadfdsf'
 git push origin master

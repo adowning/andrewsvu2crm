@@ -97,8 +97,16 @@ var webpackConfig = merge(baseWebpackConfig, {
         from: path.resolve(__dirname, '../assets'),
         to: config.build.assetsSubDirectory,
         ignore: ['.*']
-      }
+      },
     ]),
+
+      new CopyWebpackPlugin([
+        {
+          from: path.resolve(__dirname, '../_redirects'),
+          to: config.build._redirects,
+          ignore: ['.*']
+        }
+      ]),
     // service worker caching
     new SWPrecacheWebpackPlugin({
       cacheId: 'my-vue-app',
