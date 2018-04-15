@@ -1,11 +1,11 @@
 <template>
 <v-container fill-height justify-center align-center >
   <!-- <v-layout row > -->
-    <v-flex xs12 sm3>
+    <v-flex v-if="!loggedIn" xs12 sm3>
       <!-- <h1> &nbsp;</h1> -->
       <v-card class="mt-0 pt-0">
           <v-card-title class="blue darken-1">
-            <h4 style="color:white">Vue-CRM</h4>
+            <h4 style="color:white">Andrews</h4>
           </v-card-title>
           <v-card-text>
               <form @submit.prevent="login">
@@ -34,6 +34,17 @@
         </v-card-text>
       </v-card>
     </v-flex>
+     <v-flex v-if="loggedIn" xs12 sm3>
+      <!-- <h1> &nbsp;</h1> -->
+      <v-card class="mt-0 pt-0">
+          <v-card-title class="blue darken-1">
+            <h4 style="color:white">Vue-CRM</h4>
+          </v-card-title>
+          <v-card-text>
+             You are already logged in
+        </v-card-text>
+      </v-card>
+    </v-flex>
   <!-- </v-layout> -->
   </v-container>
 </template>
@@ -46,9 +57,11 @@ export default {
       email: 'admin@test.com',
       pass: 'password',
       error: false,
-      text: ''
+      text: '',
+      loggedIn: auth.loggedIn()
     }
   },
+
   methods: {
     login () {
       auth.login(this.email, this.pass, (loggedIn, err) => {
@@ -62,9 +75,14 @@ export default {
           this.text = 'Bad login information'
         } else {
           console.log(this.$route)
-          this.$router.push(this.$route.query.redirect || '/')
+          this.$router.push(this.$route.query.redirect || '/dashboard')
         }
       })
+    },
+    mounted () {
+      // if (this.loggedIn){
+      //    this.$router.push('/dashboard')
+      // }
     }
   }
 }

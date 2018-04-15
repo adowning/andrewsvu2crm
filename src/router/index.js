@@ -56,7 +56,7 @@ export default new Router({
         next('/login')
       }
     },
-    { path: '/', redirect: '/dashboard' },
+    { path: '/', redirect: '/login' },
     { path: '*', redirect: '/404' }
   ],
   meta: {
