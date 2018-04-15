@@ -48,7 +48,7 @@ export default new Router({
     { path: '/product/:id', component: ProductForm, name: 'Product', beforeEnter: requireAuth },
     { path: '/products', component: Products, name: 'Products', beforeEnter: requireAuth },
     { path: '/newproduct', component: ProductForm, name: 'NewProduct', beforeEnter: requireAuth },
-    { path: '/login', component: Login, name: 'Login' },
+    { path: '/', component: Login, name: 'Login' },
     { path: '/changePassword', component: ChangePassword, name: 'ChangePassword' },
     { path: '/logout',
       beforeEnter (to, from, next) {
@@ -56,7 +56,7 @@ export default new Router({
         next('/login')
       }
     },
-    { path: '/', redirect: '/login' },
+    // { path: '/', redirect: '/' },
     { path: '*', redirect: '/404' }
   ],
   meta: {
