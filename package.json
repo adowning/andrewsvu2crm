@@ -16,8 +16,10 @@
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs"
   },
   "dependencies": {
+    "aws-amplify": "^0.3.0",
     "axios": "^0.16.2",
     "chart.js": "^2.7.2",
+    "parse": "^1.11.1",
     "vue": "^2.5.15",
     "vue-chartjs": "^2.6.5",
     "vue-progressbar": "^0.7.4",

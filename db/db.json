@@ -32,7 +32,7 @@
       "age": 38,
       "id": 5,
       "firstName": "William",
-      "lastName": "Carney",
+      "lastName": "Carneynnn",
       "email": "test@test.com",
       "avatar": "/assets/img/avatar2.png",
       "orders": [
@@ -536,7 +536,7 @@
     {
       "id": 14,
       "productName": "Product PWCJB",
-      "categoryId": 7,
+      "categoryId": 5,
       "unitInStock": null,
       "unitPrice": 23.5
     },

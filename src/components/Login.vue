@@ -14,7 +14,7 @@
                     <v-subheader>User ID</v-subheader>
                   </v-flex>
                   <v-flex xs8>
-                    <v-text-field class="input-group--focused" name="email" v-model="email" label="email" value="Input text"></v-text-field>
+                    <v-text-field class="input-group--focused" name="username" v-model="username" label="username" value="Input text"></v-text-field>
                   </v-flex>
                 </v-layout>
                 <v-layout row>
@@ -32,6 +32,9 @@
                 </v-snackbar>
               </form>
         </v-card-text>
+         <v-btn  small outline class="grey" to="registerExisting">
+           Current employees click here to register
+          </v-btn>
       </v-card>
     </v-flex>
      <v-flex v-if="loggedIn" xs12 sm3>
@@ -54,8 +57,8 @@ import auth from '../utils/auth'
 export default {
   data () {
     return {
-      email: 'admin@test.com',
-      pass: 'password',
+      username: 'ash',
+      pass: 'asdfasdf',
       error: false,
       text: '',
       loggedIn: auth.loggedIn()
@@ -64,7 +67,7 @@ export default {
 
   methods: {
     login () {
-      auth.login(this.email, this.pass, (loggedIn, err) => {
+      auth.login(this.username, this.pass, (loggedIn, err) => {
         if (err) {
           console.log('login', err)
           this.error = true
@@ -75,6 +78,8 @@ export default {
           this.text = 'Bad login information'
         } else {
           console.log(this.$route)
+      auth.loginAmplify(this.username, this.pass, (loggedIn, err) => {
+          })
           this.$router.push(this.$route.query.redirect || '/dashboard')
         }
       })

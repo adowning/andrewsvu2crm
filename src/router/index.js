@@ -12,6 +12,7 @@ import Products from '@/pages/ProductList'
 import ProductForm from '@/pages/ProductForm'
 
 import Login from '@/components/Login'
+import RegisterExisting from '@/components/RegisterExisting'
 import ChangePassword from '@/components/ChangePassword'
 
 Vue.use(Router)
@@ -49,6 +50,7 @@ export default new Router({
     { path: '/products', component: Products, name: 'Products', beforeEnter: requireAuth },
     { path: '/newproduct', component: ProductForm, name: 'NewProduct', beforeEnter: requireAuth },
     { path: '/', component: Login, name: 'Login' },
+    { path: '/registerExisting', component: RegisterExisting, name: 'RegisterExisting' },
     { path: '/changePassword', component: ChangePassword, name: 'ChangePassword' },
     { path: '/logout',
       beforeEnter (to, from, next) {

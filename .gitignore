@@ -9,3 +9,11 @@ test/unit/coverage
 test/e2e/reports
 selenium-debug.log
 server/
+
+#awsmobilejs
+aws-info.json
+project-info.json
+aws-exports.js
+awsmobilejs/.awsmobile/backend-build
+awsmobilejs/\#current-backend-info
+~awsmobilejs-*/

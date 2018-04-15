@@ -1,10 +1,20 @@
 /* globals Store */
 import api from './backend-api'
+import { Auth } from 'aws-amplify';
 
 export default {
-  login (email, pass, cb) {
+  loginAmplify (uname, pass, cb){
+    Auth.signIn(uname, pass)
+    .then(amplifyUser => {
+      console.log(amplifyUser)
+      Store.dispatch('user/updateUserAmplify', {amplifyUser})
+      if (cb) cb(true, null)
+    })
+    .catch(err => console.log(err));
+  },
+  login (username, pass, cb) {
     cb = arguments[arguments.length - 1]
-    let data = 'username=' + email + '&password=' + pass
+    let data = 'username=' + username + '&password=' + pass
     api.login('token', data).then((res) => {
       const token = res.access_token || res.data.access_token
       const user = res.user || res.data.user

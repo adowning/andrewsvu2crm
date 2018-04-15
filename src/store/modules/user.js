@@ -8,6 +8,7 @@ const state = {
   callingAPI: false,
   searching: "",
   user: null,
+  amplifyUser: null,
   token: null,
   userInfo: {
     messages: [],
@@ -17,6 +18,10 @@ const state = {
 }
 
 const actions = {
+
+  updateUserAmplify ({ commit }, { amplifyUser }) {
+    commit("setAmplifyUser", amplifyUser)
+  },
   updateUser ({ commit }, { user, token }) {
     commit("setToken", token)
     commit("setUser", user)
@@ -33,6 +38,9 @@ const mutations = {
   },
   globalSearching (state) {
     state.searching = state.searching === "" ? "loading" : ""
+  },
+  setAmplifyUser (state, amplifyUser) {
+    state.amplifyUser = amplifyUser
   },
   setUser (state, user) {
     state.user = user

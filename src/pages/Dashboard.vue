@@ -10,11 +10,11 @@
                             </v-flex>
                             <v-flex d-flex xs9 >
                                 <v-layout class="mt-2 mb-0 pa-0" row wrap>
-                                    <x-flex d-flex xs12>
+                                    <v-flex d-flex xs12>
 
                                         <div class="silver--text subheading">{{stat.title}}</div>
 
-                                    </x-flex>
+                                    </v-flex>
 
                                    <v-flex d-flex xs12>
                                          <div class="silver--text display-1">{{stat.data}}</div>
