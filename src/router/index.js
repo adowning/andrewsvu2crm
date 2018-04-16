@@ -55,7 +55,7 @@ export default new Router({
     { path: '/logout',
       beforeEnter (to, from, next) {
         auth.logout()
-        next('/login')
+        next('/')
       }
     },
     // { path: '/', redirect: '/' },

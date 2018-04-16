@@ -10,6 +10,9 @@
           <v-card-media height="300px" class="pa-5 red lighten-1">
             <div class="display-1 white--text text-xs-center">{{msg}}</div>
           </v-card-media>
+           <v-btn  large class="warning" to="/">
+           Go home
+          </v-btn>
         </v-card>
       </v-flex>
     </v-layout>

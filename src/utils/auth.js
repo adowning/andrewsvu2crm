@@ -14,10 +14,14 @@ export default {
   },
   login (username, pass, cb) {
     cb = arguments[arguments.length - 1]
-    let data = 'username=' + username + '&password=' + pass
-    api.login('token', data).then((res) => {
-      const token = res.access_token || res.data.access_token
-      const user = res.user || res.data.user
+    // let data = 'username=' + username + '&password=' + pass
+    let data = {
+      username: username,
+      pass: pass
+    }
+    api.login(data).then((res) => {
+      const token = res.attributes.sessionToken
+      const user = res
       Store.dispatch('user/updateUser', {user, token})
       if (cb) cb(true, null)
       this.onChange(true)
@@ -31,8 +35,6 @@ export default {
     return Store.state.user.token
   },
   logout (cb) {
-    // delete localStorage.token
-    // Store.commit('setToken', null)
     Store.dispatch('user/logout')
     if (cb) cb(false)
     this.onChange(false)

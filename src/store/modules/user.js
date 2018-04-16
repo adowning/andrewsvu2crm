@@ -1,6 +1,6 @@
 import Vue from "vue"
 import Vuex from "vuex"
-
+var Parse = require('parse');
 Vue.use(Vuex)
 
 const state = {
@@ -10,6 +10,7 @@ const state = {
   user: null,
   amplifyUser: null,
   token: null,
+  userAttributes: null,
   userInfo: {
     messages: [],
     notifications: [],
@@ -23,11 +24,17 @@ const actions = {
     commit("setAmplifyUser", amplifyUser)
   },
   updateUser ({ commit }, { user, token }) {
+    Parse.User.logOut().then(() => {
+      var currentUser = Parse.User.current();  // this will now be null
+    });
     commit("setToken", token)
     commit("setUser", user)
+    commit("setUserAttributes", user.attributes)
   },
   logout ({ commit }) {
     commit("setToken", null)
+    commit("setAmplifyUser", null)
+    commit("setUserAttributes", null)
     commit("setUser", {})
   }
 }
@@ -50,6 +57,9 @@ const mutations = {
   },
   setUserInfo (state, userInfo) {
     state.userInfo = userInfo
+  },
+  setUserAttributes (state, userAttributes) {
+    state.userAttributes = userAttributes
   }
 }
 

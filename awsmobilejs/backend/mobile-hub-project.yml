@@ -17,5 +17,8 @@ features:
       sign-in-user-pools: !com.amazonaws.mobilehub.v0.UserPoolsIdentityProvider 
         attributes:
           user-pool-id: us-east-1_LDuyTsU9m
+  user-files: !com.amazonaws.mobilehub.v0.UserFiles 
+    attributes:
+      enabled: true
 name: andrews
 region: us-east-1
