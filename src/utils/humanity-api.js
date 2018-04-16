@@ -1,6 +1,10 @@
 import axios from 'axios'
 const token = '?access_token=1698483cbae72d5d186ea540154c1c9aeaf26c77'
-const BASE_URL = 'https://www.humanity.com/api/v2/'
+var BASE_URL = '/humanity'
+if (process.env.NODE_ENV == 'development') {
+  var BASE_URL = 'https://www.humanity.com/api/v2'
+}
+console.log(BASE_URL)
 
 const instance = axios.create({
   baseURL: BASE_URL,

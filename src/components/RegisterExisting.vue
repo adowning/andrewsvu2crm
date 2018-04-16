@@ -6,16 +6,16 @@
       <!-- <h1> &nbsp</h1> -->
       <v-card class="mt-0 pt-0">
           <v-card-title class="blue darken-1">
-            <h4 style="color:white">Andrews</h4>
+            <h4 style="color:white">Andrews 1444044</h4>
           </v-card-title>
           <v-card-text>
               <form @submit.prevent="login">
                 <v-layout row>
-                  <v-flex xs4>
+                  <!-- <v-flex xs4>
                     <v-subheader>Humanity ID</v-subheader>
-                  </v-flex>
+                  </v-flex> -->
                   <v-flex xs8>
-                    <v-text-field class="input-group--focused" name="humanityID" v-model="humanityID" label="Humanity ID" value="1444044"></v-text-field>
+                    <v-text-field class="input-group--focused" name="humanityID" v-model="humanityID" label="Humanity ID"></v-text-field>
                   </v-flex>
                 </v-layout>
 
@@ -278,7 +278,7 @@ export default {
       this.src = this.defSrc
     },
     verifyHumanity: function() {
-      this.humanity.getData('employees/' + this.humanityID).then(res => {
+      this.humanity.getData('/employees/' + this.humanityID).then(res => {
         this.humanityEmployee = res.data.data
       })
     },
