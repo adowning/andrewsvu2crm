@@ -10,7 +10,7 @@ import humanity from './utils/humanity-api'
 import appUtil from './utils/app-util'
 import Amplify, { Auth, Logger } from 'aws-amplify'
 import VueProgressBar from 'vue-progressbar'
-import awsExports from '../awsmobilejs/#current-backend-info/aws-exports'
+import awsExports from './aws-exports'
 var Parse = require('parse')
 Parse.initialize('11a962c545d719a4778b5bf4720997488fe1e4f3')
 Parse.serverURL = 'http://34.207.78.48:80/parse'
