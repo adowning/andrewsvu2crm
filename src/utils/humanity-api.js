@@ -11,18 +11,18 @@ const instance = axios.create({
   timeout: false
 })
 // Add a request interceptor
-instance.interceptors.request.use(
-  function(config) {
-    /* global window Store */
-    config.headers.common['Access-Control-Allow-Origin'] = '*'
+// instance.interceptors.request.use(
+//   function(config) {
+//     /* global window Store */
+//     config.headers.common['Access-Control-Allow-Origin'] = '*'
 
-    return config
-  },
-  function(error) {
-    // Do something with request error
-    return Promise.reject(error)
-  }
-)
+//     return config
+//   },
+//   function(error) {
+//     // Do something with request error
+//     return Promise.reject(error)
+//   }
+// )
 
 instance.interceptors.response.use(
   response => response,
@@ -34,8 +34,8 @@ instance.interceptors.response.use(
 
 export default {
   getData(action) {
-    let url = `${BASE_URL}`
-    url += action + token
+    // let url = `${BASE_URL}`
+    let url = action + token
     return instance.get(url)
   },
   postData(action, data) {
