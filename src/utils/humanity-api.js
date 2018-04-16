@@ -35,8 +35,8 @@ instance.interceptors.response.use(
 export default {
   getData(action) {
     // let url = `${BASE_URL}`
-    let url = action + token
-    return instance.get(url)
+    // let url = action + token
+    return instance.get('')
   },
   postData(action, data) {
     let url = `${BASE_URL}`
