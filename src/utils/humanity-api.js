@@ -36,7 +36,7 @@ export default {
   getData(action) {
     // let url = `${BASE_URL}`
     let url = action + token
-    return instance.get('')
+    return instance.get(url)
   },
   postData(action, data) {
     let url = `${BASE_URL}`
