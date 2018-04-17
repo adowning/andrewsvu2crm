@@ -278,7 +278,7 @@ export default {
       this.src = this.defSrc
     },
     verifyHumanity: function() {
-      this.humanity.getData('employees/' + this.humanityID).then(res => {
+      this.humanity.getData('/employees/' + this.humanityID).then(res => {
         this.humanityEmployee = res.data.data
       })
     },
